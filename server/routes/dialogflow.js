@@ -27,8 +27,8 @@ router.post('/textQuery', async (req, res) => {
         session: sessionPath,
         queryInput: {
             text: {
-                // The query to send to the dialogflow agent
-                text: req.body.text,
+                // The query to send to the dialogflow agent //하드 코딩해서는 안됨~~!
+                text: req.body.text, 
                 // The language used by the client (en-US)
                 languageCode: languageCode,
             },
@@ -36,7 +36,7 @@ router.post('/textQuery', async (req, res) => {
     };
 
     // Send request and log result
-    const responses = await sessionClient.detectIntent(request);
+    const responses = await sessionClient.detectIntent(request); //async 써야 await 사용 가능
     console.log('Detected intent');
     const result = responses[0].queryResult;
     console.log(`  Query: ${result.queryText}`);
