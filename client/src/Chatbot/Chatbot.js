@@ -18,7 +18,7 @@ function Chatbot() {
 
     const textQuery = async (text) => {
 
-        //  First  Need to  take care of the message I sent     
+        //  First  Need to  take care of the message I sent (내가 입력한 내용 보여줘야함)
         let conversation = {
             who: 'user',
             content: {
@@ -31,15 +31,15 @@ function Chatbot() {
         dispatch(saveMessage(conversation))
         // console.log('text I sent', conversation)
 
-        // We need to take care of the message Chatbot sent 
+        // We need to take care of the message Chatbot sent (챗봇의 대답 내용 보여줘야함)
         const textQueryVariables = {
-            text
+            text // same as text: text
         }
         try {
-            //I will send request to the textQuery ROUTE 
-            const response = await Axios.post('/api/dialogflow/textQuery', textQueryVariables)
+            //I will send request to the textQuery ROUTE(backend)
+            const response = await Axios.post('/api/dialogflow/textQuery', textQueryVariables) //await은 항상 async 안에 사용해야함
 
-            for (let content of response.data.fulfillmentMessages) {
+            for (let content of response.data.fulfillmentMessages) { //포스트맨의 리스폰스 JSON 참고
 
                 conversation = {
                     who: 'bot',
@@ -55,7 +55,7 @@ function Chatbot() {
                 who: 'bot',
                 content: {
                     text: {
-                        text: " Error just occured, please check the problem"
+                        text: "I got some errors! please check the problem"
                     }
                 }
             }
@@ -93,7 +93,7 @@ function Chatbot() {
                 who: 'bot',
                 content: {
                     text: {
-                        text: " Error just occured, please check the problem"
+                        text: "I got some errors! please check the problem"
                     }
                 }
             }
@@ -114,7 +114,7 @@ function Chatbot() {
             textQuery(e.target.value)
 
 
-            e.target.value = "";
+            e.target.value = ""; //입력칸을 다시 빈칸으로 만들어줌
         }
     }
 
