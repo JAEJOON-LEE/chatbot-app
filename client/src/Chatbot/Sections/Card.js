@@ -19,8 +19,8 @@ function CardComponent(props) {
             ]}
         >
             <Meta
-                title={props.cardInfo.fields.stack.stringValue}
-                description={props.cardInfo.fields.description.stringValue}
+                title={props.cardInfo.fields.description.stringValue}
+                description={props.cardInfo.fields.link.stringValue}
             />
 
         </Card>

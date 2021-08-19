@@ -130,9 +130,9 @@ function Chatbot() {
         // we need to give some condition here to separate message kinds 
 
         // template for normal text 
-        if (message.content && message.content.text && message.content.text.text) {
+        if (message.content && message.content.text && message.content.text.text) { //card message가 아닌 일반 메세지인 경우
             return <Message key={i} who={message.who} text={message.content.text.text} />
-        } else if (message.content && message.content.payload.fields.card) {
+        } else if (message.content && message.content.payload.fields.card) {    //card message인 경우 -> JSON의 payload에 차이가 있음
 
             const AvatarSrc = message.who === 'bot' ? <Icon type="robot" /> : <Icon type="smile" />
 
