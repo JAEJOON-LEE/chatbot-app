@@ -7,7 +7,7 @@ import { List, Icon, Avatar } from 'antd';
 import Card from "./Sections/Card";
 function Chatbot() {
     const dispatch = useDispatch();
-    const messagesFromRedux = useSelector(state => state.message.messages)
+    const messagesFromRedux = useSelector(state => state.message.messages) //스토어에 저장되어 있는 데이터 가져옴
 
     useEffect(() => { // 처음 웹사이트에 들어갈 때마다 이 액션을 취하도록 하기 위해
 
@@ -136,8 +136,8 @@ function Chatbot() {
 
             const AvatarSrc = message.who === 'bot' ? <Icon type="robot" /> : <Icon type="smile" />
 
-            return <div>
-                <List.Item style={{ padding: '1rem' }}>
+            return <div>                        {/* 채팅 말풍선 컴포넌트 */}
+                <List.Item style={{ padding: '1rem' }}> 
                     <List.Item.Meta
                         avatar={<Avatar icon={AvatarSrc} />}
                         title={message.who}
