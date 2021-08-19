@@ -11,7 +11,7 @@ function App() {
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
        
-        <Chatbot />
+        <Chatbot /> {/* 대화창 UI */}
 
 
       </div>

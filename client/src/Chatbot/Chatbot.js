@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'; //redux 사용
 import { saveMessage } from '../_actions/message_actions';
 import Message from './Sections/Message';
 import { List, Icon, Avatar } from 'antd';
@@ -9,9 +9,9 @@ function Chatbot() {
     const dispatch = useDispatch();
     const messagesFromRedux = useSelector(state => state.message.messages)
 
-    useEffect(() => {
+    useEffect(() => { // 처음 웹사이트에 들어갈 때마다 이 액션을 취하도록 하기 위해
 
-        eventQuery('WelcomeToMyChatbot')
+        eventQuery('WelcomeToMyChatbot') // 이 컴포넌트 사용해야함을 알림
 
     }, [])
 
@@ -28,7 +28,7 @@ function Chatbot() {
             }
         }
 
-        dispatch(saveMessage(conversation))
+        dispatch(saveMessage(conversation)) //Redux store에 conversation JSON 저장
         // console.log('text I sent', conversation)
 
         // We need to take care of the message Chatbot sent (챗봇의 대답 내용 보여줘야함)
@@ -69,10 +69,11 @@ function Chatbot() {
 
 
     const eventQuery = async (event) => {
+        // 유저의 입력없이 기본적으로 출력하는 메세지이기 때문에 봇만 신경쓰면 됨
 
         // We need to take care of the message Chatbot sent 
         const eventQueryVariables = {
-            event
+            event // event : event와 같음
         }
         try {
             //I will send request to the textQuery ROUTE 

@@ -7,7 +7,7 @@ export default function (state = {messages:[]}, action) {
         case SAVE_MESSAGE:
             return {
                 ...state,
-                messages: state.messages.concat(action.payload)
+                messages: state.messages.concat(action.payload) //action.payload 가 리스폰스 JSON의 text 데이터
             }
         default:
             return state;
