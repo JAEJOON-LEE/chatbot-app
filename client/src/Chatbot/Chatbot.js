@@ -11,7 +11,7 @@ function Chatbot() {
 
     useEffect(() => {
 
-        eventQuery('welcomeToMyWebsite')
+        eventQuery('WelcomeToMyChatbot')
 
     }, [])
 
